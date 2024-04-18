@@ -1,5 +1,6 @@
 package com.ps.demoblaze.teststeps;
 
+import com.ps.demoblaze.dataproviders.DemoBlazeDataProvider;
 import com.ps.demoblaze.pages.LoginForm;
 import com.ps.demoblaze.pages.NavBar;
 import com.ps.demoblaze.teststeps.testparent.DemoBlazeTest;
@@ -24,10 +25,10 @@ public class LoginTest extends DemoBlazeTest {
         driver.get("https://www.demoblaze.com/index.html");
     }
 
-    @Test
-    public void validLoginTest() throws InterruptedException {
+    @Test(dataProvider = "data-provider", dataProviderClass = DemoBlazeDataProvider.class)
+    public void validLoginTest(String username, String password) throws InterruptedException {
         navBar.getLoginLink().click();
-        loginForm.login("pepito.perez@gmail.com", "abc");
+        loginForm.login(username, password);
 
         String loggedInUser = navBar.getUserName().getText();
 
