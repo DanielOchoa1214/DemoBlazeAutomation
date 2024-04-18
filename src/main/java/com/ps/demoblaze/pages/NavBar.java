@@ -17,6 +17,12 @@ public class NavBar {
     @FindBy(id = "cartur")
     private WebElement cartLink;
 
+    @FindBy(id = "login2")
+    private WebElement loginLink;
+
+    @FindBy(id = "nameofuser")
+    private WebElement userName;
+
     public NavBar(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -26,5 +32,15 @@ public class NavBar {
     public WebElement getCartLink() {
         wait.until(ExpectedConditions.visibilityOf(cartLink));
         return cartLink;
+    }
+
+    public WebElement getLoginLink() {
+        wait.until(ExpectedConditions.visibilityOf(loginLink));
+        return loginLink;
+    }
+
+    public WebElement getUserName() {
+        wait.until(ExpectedConditions.visibilityOf(userName));
+        return userName;
     }
 }
