@@ -1,11 +1,12 @@
 package com.ps.demoblaze.teststeps;
 
+import com.ps.demoblaze.teststeps.testparent.DemoBlazeTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class CartPageTest extends DemoBlazeTest{
+public class CartPageTest extends DemoBlazeTest {
     private WebDriver driver;
 
     @BeforeMethod

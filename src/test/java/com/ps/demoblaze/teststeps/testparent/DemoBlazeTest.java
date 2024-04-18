@@ -1,4 +1,4 @@
-package com.ps.demoblaze.teststeps;
+package com.ps.demoblaze.teststeps.testparent;
 
 import com.ps.demoblaze.reportingtools.DemoBlazeReport;
 import org.testng.ITestResult;
