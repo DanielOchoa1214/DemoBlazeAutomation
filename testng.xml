@@ -6,6 +6,7 @@
             <class name="com.ps.demoblaze.teststeps.LoginTest">
                 <methods>
                     <include name="validLoginTest"/>
+                    <include name="invalidLoginTest"/>
                 </methods>
             </class>
         </classes>
