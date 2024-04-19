@@ -1,5 +1,6 @@
 package com.ps.demoblaze.pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -47,5 +48,10 @@ public class LoginForm {
     public WebElement getLoginBtn() {
         wait.until(ExpectedConditions.visibilityOf(loginBtn));
         return loginBtn;
+    }
+
+    public Alert getErrorAlert(){
+        wait.until(ExpectedConditions.alertIsPresent());
+        return driver.switchTo().alert();
     }
 }
