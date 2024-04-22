@@ -33,7 +33,7 @@ public class LoginTest extends DemoBlazeTest {
     }
 
     @Test(dataProvider = "data-provider", dataProviderClass = DemoBlazeDataProvider.class)
-    public void validLoginTest(String username, String password) {
+    public void ECLAT_965_validLoginTest(String username, String password) {
         navBar.getLoginLink().click();
         loginForm.login(username, password);
 
@@ -43,7 +43,7 @@ public class LoginTest extends DemoBlazeTest {
     }
 
     @Test(dataProvider = "data-provider", dataProviderClass = DemoBlazeDataProvider.class)
-    public void invalidLoginTest(String username, String password) {
+    public void ECLAT_966_invalidLoginTest(String username, String password) {
         navBar.getLoginLink().click();
         loginForm.login(username, password);
 

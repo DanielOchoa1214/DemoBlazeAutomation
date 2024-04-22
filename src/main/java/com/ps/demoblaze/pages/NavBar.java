@@ -29,6 +29,10 @@ public class NavBar {
         PageFactory.initElements(driver, this);
     }
 
+    public void gotToCart(){
+        cartLink.click();
+    }
+
     public WebElement getCartLink() {
         wait.until(ExpectedConditions.visibilityOf(cartLink));
         return cartLink;
