@@ -2,15 +2,21 @@ package com.ps.demoblaze.teststeps;
 
 import com.ps.demoblaze.pages.*;
 import com.ps.demoblaze.teststeps.testparent.DemoBlazeTest;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class ProductDetailsTest extends DemoBlazeTest {
     private ChromeOptions options;
@@ -72,16 +78,41 @@ public class ProductDetailsTest extends DemoBlazeTest {
     }
 
     @Test
-    public void ECLAT_399_verifyAddToCartButtonExistsAndWorks() {
+    public void ECLAT_399_verifyAddToCartButtonFunctionsCorrectly() {
         mainPage.clickFirstProduct();
         String productName = detailsPage.getProductName().getText();
         WebElement addToCartBtn = detailsPage.getAddToCartBtn();
 
-        Assert.assertNotNull(addToCartBtn);
         addToCartBtn.click();
 
         navBar.gotToCart();
         Assert.assertEquals(cartPage.getFirstElementTitle().getText(), productName);
+    }
+
+    @Test
+    public void ECLAT_571_verifyAddToCartButtonExists() {
+        mainPage.clickFirstProduct();
+        WebElement addToCartBtn = detailsPage.getAddToCartBtn();
+
+        Assert.assertNotNull(addToCartBtn);
+    }
+
+    @Test
+    public void ECLAT_573_574_addToCartConfirmationMessageAppears(){
+        mainPage.clickFirstProduct();
+        WebElement addToCartBtn = detailsPage.getAddToCartBtn();
+
+        addToCartBtn.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            wait.until(ExpectedConditions.alertIsPresent());
+
+            Alert alert = driver.switchTo().alert();
+            Assert.assertEquals(alert.getText(), "Product added");
+            alert.accept();
+        } catch (NoAlertPresentException e){
+            Assert.fail("An alert should've appeared");
+        }
     }
 
     @AfterMethod
