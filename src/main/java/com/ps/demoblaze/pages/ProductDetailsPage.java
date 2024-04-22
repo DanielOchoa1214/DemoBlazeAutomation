@@ -11,6 +11,7 @@ import java.time.Duration;
 
 public class ProductDetailsPage {
     private final WebDriver driver;
+    private final WebDriverWait wait;
 
     @FindBy(id = "more-information")
     private WebElement detailsInfo;
@@ -24,8 +25,12 @@ public class ProductDetailsPage {
     @FindBy(css = ".btn.btn-success")
     private WebElement addToCartBtn;
 
+    @FindBy(css = "#imgp img")
+    private WebElement productImg;
+
     public ProductDetailsPage(WebDriver driver) {
         this.driver = driver;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
 
@@ -34,23 +39,22 @@ public class ProductDetailsPage {
     }
 
     public WebElement getPrice() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(price));
-
         return price;
     }
 
     public WebElement getAddToCartBtn() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(addToCartBtn));
-
         return addToCartBtn;
     }
 
     public WebElement getProductName() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(productName));
-
         return productName;
+    }
+
+    public WebElement getProductImg() {
+        wait.until(ExpectedConditions.visibilityOf(productImg));
+        return productImg;
     }
 }
