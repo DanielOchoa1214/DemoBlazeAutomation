@@ -9,7 +9,9 @@ public class DemoBlazeDataProvider {
     public Object[][] dpMethod(Method m){
         return switch (m.getName()) {
             case "ECLAT_965_validLoginTest" -> new Object[][]{{"pepito.perez@gmail.com", "abc"}};
-            case "ECLAT_966_invalidLoginTest" -> new Object[][]{{"pepito.perez@gmail.com", "abcd"}, {"pepito.perez@gmail.com", "123"}};
+            case "ECLAT_966_invalidLoginTest" -> new Object[][]{{"pepito.perez@gmail.com", "abcd", "Wrong password."},
+                                                                {"pepito.perez@gmail.com", "123", "Wrong password."},
+                                                                {"invalid.email@gmail.com", "123", "User does not exist."}};
             default -> null;
         };
     }
