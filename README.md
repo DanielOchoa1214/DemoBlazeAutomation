@@ -35,7 +35,7 @@ mvn clean test
 
 And if everything went well you should see in console the following output
 
-IMAGEN RESULTADOS PRUEBAS DE CONSOLA
+![Screenshot 2024-04-24 085530](https://github.com/DanielOchoa1214/DemoBlazeAutomation/assets/77862016/31c88ba4-e870-47cd-88ef-47ba048f497a)
 
 And to see some detailed test reports, you can open up either one of the following files:
 
@@ -43,13 +43,14 @@ And to see some detailed test reports, you can open up either one of the followi
 reports/report.html
 ```
 
-EXTENT REPORT IMAGES
+![image](https://github.com/DanielOchoa1214/DemoBlazeAutomation/assets/77862016/c73cd823-eb67-4b64-8f5c-d0fa3c7dcfe3)
+![image](https://github.com/DanielOchoa1214/DemoBlazeAutomation/assets/77862016/696f9d04-67f1-41f5-a7d0-54687f8a96b3)
 
 ```
 target/surefire-reports/index.html
 ```
 
-TESTNG IMAGE
+![image](https://github.com/DanielOchoa1214/DemoBlazeAutomation/assets/77862016/2bf2b894-0cba-4eb7-915b-f32953407db7)
 
 ## Build with
 
