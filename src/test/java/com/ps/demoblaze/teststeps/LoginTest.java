@@ -43,14 +43,14 @@ public class LoginTest extends DemoBlazeTest {
     }
 
     @Test(dataProvider = "data-provider", dataProviderClass = DemoBlazeDataProvider.class)
-    public void ECLAT_966_invalidLoginTest(String username, String password) {
+    public void ECLAT_966_invalidLoginTest(String username, String password, String expectedAlertMessage) {
         navBar.getLoginLink().click();
         loginForm.login(username, password);
 
         Alert errorAlert = loginForm.getErrorAlert();
         String errorMessage = errorAlert.getText();
 
-        Assert.assertEquals(errorMessage, "Wrong password.");
+        Assert.assertEquals(errorMessage, expectedAlertMessage);
         errorAlert.accept();
     }
 
