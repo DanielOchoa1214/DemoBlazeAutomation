@@ -15,11 +15,6 @@ public class CartPageTest extends DemoBlazeTest {
     }
 
     @Test
-    public void test2(){
-        Assert.assertEquals("", "!");
-    }
-
-    @Test
     public void test3(){
         driver.get("https://www.google.com/");
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.google.com/");
