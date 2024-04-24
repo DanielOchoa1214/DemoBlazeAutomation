@@ -64,15 +64,15 @@ target/surefire-reports/index.html
 
 ## Authors
 
-Daniel Ochoa - [DanielOchoa1214](https://github.com/DanielOchoa1214)
-Rafael Zúñiga - [Kiloren19](https://github.com/Kiloren19)
-Jenson Pérez - [Jenson-08](https://github.com/Jenson-08)
+* Daniel Ochoa - [DanielOchoa1214](https://github.com/DanielOchoa1214)
+* Rafael Zúñiga - [Kiloren19](https://github.com/Kiloren19)
+* Jenson Pérez - [Jenson-08](https://github.com/Jenson-08)
 
 ## Licence
 
 GNU General Public License family
 
-## Agradecimientos
+## Acknowledgments
 
 * To the best Scrum Master we could ask for *Andres Novoa*
 * Figo, mi beautiful dog
