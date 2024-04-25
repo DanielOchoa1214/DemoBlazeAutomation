@@ -1,4 +1,51 @@
 package com.ps.demoblaze.teststeps;
 
-public class NavBarTest {
+import com.ps.demoblaze.dataproviders.DemoBlazeDataProvider;
+import com.ps.demoblaze.pages.NavBar;
+import com.ps.demoblaze.teststeps.testparent.DemoBlazeTest;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class NavBarTest extends DemoBlazeTest {
+    private WebDriver driver = null;
+    NavBar navbar;
+    WebDriverWait wait;
+    private ChromeOptions options;
+
+    @BeforeClass
+    public void beforeClass(){
+        options = new ChromeOptions();
+        options.addArguments("--headless=new");
+    }
+
+    @BeforeMethod
+    public void beforeMethod(){
+        driver = new ChromeDriver();
+        driver.get("https://demoblaze.com/");
+        navbar = new NavBar(driver);
+        driver.manage().window().maximize();
+    }
+    @Test()
+    public void ECLAT_490_ClickingCartIcon(){
+        navbar.getCartButton().click();
+        String currentURL = driver.getCurrentUrl();
+        String expectedURL = "https://demoblaze.com/cart.html";
+        Assert.assertEquals(currentURL, expectedURL, "URL doesn't match");
+    }
+
+    @Test()
+    public void ECLAT_565_NavBarFunctionality(){
+        //in progress
+    }
+    @AfterMethod
+    public void afterMethod(){
+        driver.close();
+    }
 }

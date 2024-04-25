@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/Users/danochoa/Documents/Proyecto/Framework/DemoBlazeAutomation">
+    <test verbose="2" preserve-order="true" name="C:/Users/jenperez1/Desktop/DemoBlazeAutomation">
         <classes>
             <class name="com.ps.demoblaze.teststeps.LoginTest"/>
             <class name="com.ps.demoblaze.teststeps.ProductDetailsTest"/>
+            <class name="com.ps.demoblaze.teststeps.MainPageTest"/>
+            <class name="com.ps.demoblaze.teststeps.NavBarTest"/>
         </classes>
     </test>
 </suite>

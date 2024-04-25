@@ -47,4 +47,13 @@ public class NavBar {
         wait.until(ExpectedConditions.visibilityOf(userName));
         return userName;
     }
+    @FindBy(css = "a#cartur")
+    private WebElement cartButton;
+
+    public WebElement getCartButton() {
+        return cartButton;
+    }
+
+
+
 }
