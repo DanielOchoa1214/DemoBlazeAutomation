@@ -54,7 +54,6 @@ target/surefire-reports/index.html
 
 ## Build with
 
-* Love
 * [Maven](https://maven.apache.org/) - Dependency administrator
 * [IntelliJ IDEA](https://www.jetbrains.com/es-es/idea/) - Development IDE
 
@@ -74,5 +73,9 @@ GNU General Public License family
 
 ## Acknowledgments
 
-* To the best Scrum Master we could ask for *Andres Novoa*
-* Figo, mi beautiful dog
+* *Andres Novoa*
+* Figo
+* Daniel Beltran
+* Rosa Saavedra
+* Sergio Rivera
+* David Torres
