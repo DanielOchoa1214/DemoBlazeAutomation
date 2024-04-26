@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CheckoutForm {
@@ -128,8 +129,6 @@ public class CheckoutForm {
         return purchaseConfirmationMessage;
     }
 
-
-
     public void fillPlaceOrder(String name, String country, String city, String card, String month, String year){
         getNameInput().sendKeys(name);
         getCountryInput().sendKeys(country);
@@ -140,8 +139,24 @@ public class CheckoutForm {
         getPurchaseBtn().click();
     }
 
+    @FindBy(css = "p.lead.text-muted")
+    private WebElement purchaseDetails;
+    public WebElement getPurchaseDetails() {
+        wait.until(ExpectedConditions.visibilityOf(purchaseDetails));
+        return purchaseDetails;
+    }
 
+    public List<String> getPurchaseDataList() {
+        String dataText = getPurchaseDetails().getText();
+        String[] lines = dataText.split("\\n");
+        List<String> dataList = new ArrayList<>();
 
+        // Agrega cada línea a la lista
+        for (String line : lines) {
+            dataList.add(line);
+        }
+        return dataList;
+    }
 
     //    @FindBy(css = ".card-block h5")
     //private WebElement firstProduct;

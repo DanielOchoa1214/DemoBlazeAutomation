@@ -15,7 +15,7 @@ public class DemoBlazeDataProvider {
             case "ECLAT_419_NavigToPhonesCategory" -> new Object[][]{{"Phones", "Iphone 6 32gb"}};
             case "ECLAT_420_NavigToLaptopsCategory" -> new Object[][]{{"Laptops", "MacBook air"}};
             case "ECLAT_421_NavigToMonitorsCategory" -> new Object[][]{{"Monitors", "Apple monitor 24"}};
-            case "ECLAT_904_CompletionCheckoutProcess" -> new Object[][]{{"Pepito Perez", "Colombia", "Bogotá", "1234 5678 9012 3456","December"," 1999"}};
+            case "ECLAT_904_CompletionCheckoutProcess","ECLAT_905_VerifyOrderConfirmation" -> new Object[][]{{"Pepito Perez", "Colombia", "Bogotá", "1234 5678 9012 3456","December"," 1999"}};
             default -> null;
         };
     }
