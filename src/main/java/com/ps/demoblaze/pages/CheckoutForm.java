@@ -54,7 +54,6 @@ public class CheckoutForm {
         return addToCart2Btn;
     }
     public Alert getAlert(){
-
         wait.until(ExpectedConditions.alertIsPresent());
         return driver.switchTo().alert();
     }

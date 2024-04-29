@@ -1,5 +1,6 @@
 package com.ps.demoblaze.pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -56,5 +57,10 @@ public class ProductDetailsPage {
     public WebElement getProductImg() {
         wait.until(ExpectedConditions.visibilityOf(productImg));
         return productImg;
+    }
+
+    public Alert getAlert(){
+        wait.until(ExpectedConditions.alertIsPresent());
+        return driver.switchTo().alert();
     }
 }

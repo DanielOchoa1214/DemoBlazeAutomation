@@ -33,7 +33,7 @@ public class NavBarTest extends DemoBlazeTest {
 
     @BeforeMethod
     public void beforeMethod(){
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
         driver.get("https://demoblaze.com/");
         navbar = new NavBar(driver);
         driver.manage().window().maximize();

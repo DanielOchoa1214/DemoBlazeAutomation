@@ -52,7 +52,8 @@ public class CartPage {
     private WebElement cartButton;
 
     public WebElement getCartButton() {
-        return cartButton;
+            return cartButton;
+    }
 
     public WebElement getFirstElementPrice() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));

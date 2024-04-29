@@ -34,7 +34,7 @@ public class MainPageTest extends DemoBlazeTest {
 
     @BeforeMethod
     public void beforeMethod(){
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
         driver.get("https://demoblaze.com/");
         mainPage = new MainPage(driver);
         //driver.manage().window().maximize();
@@ -88,21 +88,25 @@ public class MainPageTest extends DemoBlazeTest {
                 //.click(categories)
                 .perform();
 
+        Actions actions = new Actions(driver);
+
         List<WebElement> elements =  mainPage.getElements();
         int index = 0;
 
         while (index < elements.size()) {
             // actual element
+            wait.until(ExpectedConditions.visibilityOf(elements.get(index)));
             WebElement element = elements.get(index);
             // save text
             String elementText = element.getText();
             element.click();
+            actions.pause(Duration.ofSeconds(2)).perform();
             wait.withTimeout(Duration.ofSeconds(4)).until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
             // Finding again the component
             elements = mainPage.getElements();
             index++;
         }
-        wait.withTimeout(Duration.ofSeconds(4)).until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
+        // wait.withTimeout(Duration.ofSeconds(4)).until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
         mainPage.getMonitor().click();
     }
 
