@@ -21,6 +21,7 @@ public class DemoBlazeDataProvider {
             case "ECLAT_904_CompletionCheckoutProcess","ECLAT_905_VerifyOrderConfirmation" -> new Object[][]{{"Pepito Perez", "Colombia", "Bogotá", "1234 5678 9012 3456","December"," 1999"}};
             case "ECLAT_965_validLoginTest", "ECLAT_802_SignUpValidation" -> new Object[][]{{"pepito.perez@gmail.com", "abc"}};
             case "ECLAT_805_correctSignUp" -> new Object[][]{{randomUsername, "123"}};
+            case "endToEndTest" -> new Object[][]{{"pepito.perez@gmail.com", "abc", "Pepito Perez", "Colombia", "Bogotá", "1234 5678 9012 3456","December"," 1999"}};
             default -> null;
         };
     }

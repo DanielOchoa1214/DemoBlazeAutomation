@@ -29,13 +29,13 @@ public class MainPage {
     }
 
     public void clickFirstProduct(){
+        PageFactory.initElements(driver, this);
         wait.until(ExpectedConditions.visibilityOf(firstProductTitle));
         firstProductTitle.click();
     }
 
     public WebElement getFirstProductPrice() {
         wait.until(ExpectedConditions.visibilityOf(firstProductPrice));
-
         return firstProductPrice;
     }
 
@@ -123,6 +123,13 @@ public class MainPage {
         return monitor;
     }
 
+ /////////////////////////////
+    @FindBy(css = "#contcont a#itemc")
+    private List<WebElement> filters;
 
+    public List<WebElement> getFilters(){
+        wait.until(ExpectedConditions.visibilityOfAllElements(filters));
+        return filters;
+    }
 
 }

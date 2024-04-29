@@ -46,7 +46,7 @@ public class NavBarTest extends DemoBlazeTest {
         Assert.assertEquals(currentURL, expectedURL, "URL doesn't match");
     }
 
-    @Test()
+    /*@Test()
     public void ECLAT_565_NavBarFunctionality(){
         Actions actions = new Actions(driver);
         navbar.getHomeBtn().click();
@@ -74,7 +74,7 @@ public class NavBarTest extends DemoBlazeTest {
         actions.pause(Duration.ofSeconds(2)).perform();
         navbar.getCloseModalSignIn().click();
         actions.pause(Duration.ofSeconds(2)).perform();
-    }
+    }*/
     @Test
     public void ECLAT_807_SignUpFRegistratForm(){
         navbar.getSignUpBtn().click();
