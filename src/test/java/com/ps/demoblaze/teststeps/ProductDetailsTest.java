@@ -84,6 +84,7 @@ public class ProductDetailsTest extends DemoBlazeTest {
         WebElement addToCartBtn = detailsPage.getAddToCartBtn();
 
         addToCartBtn.click();
+        detailsPage.getAlert().accept();
 
         navBar.gotToCart();
         Assert.assertEquals(cartPage.getFirstElementTitle().getText(), productName);

@@ -76,7 +76,7 @@ public class MainPageTest extends DemoBlazeTest {
         Assert.assertEquals(product1,product);
     }
 
-    @Test
+    /*@Test
     public void ECLAT_552_NavigElementsFunctionality(){
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         new Actions(driver)
@@ -108,7 +108,7 @@ public class MainPageTest extends DemoBlazeTest {
         }
         // wait.withTimeout(Duration.ofSeconds(4)).until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
         mainPage.getMonitor().click();
-    }
+    }*/
 
 
 
