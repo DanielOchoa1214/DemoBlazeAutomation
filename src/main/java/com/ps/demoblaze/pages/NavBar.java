@@ -21,8 +21,16 @@ public class NavBar {
     @FindBy(id = "login2")
     private WebElement loginLink;
 
+    @FindBy(id = "signin2")
+    private WebElement signinLink;
+
     @FindBy(id = "nameofuser")
     private WebElement userName;
+
+    @FindBy(css = "a.nav-link[href='index.html']")
+    private WebElement homeLink;
+
+
 
     public NavBar(WebDriver driver) {
         this.driver = driver;
@@ -34,6 +42,10 @@ public class NavBar {
         cartLink.click();
     }
 
+    public void gotToHome(){
+        homeLink.click();
+    }
+
     public WebElement getCartLink() {
         wait.until(ExpectedConditions.visibilityOf(cartLink));
         return cartLink;
@@ -42,6 +54,11 @@ public class NavBar {
     public WebElement getLoginLink() {
         wait.until(ExpectedConditions.visibilityOf(loginLink));
         return loginLink;
+    }
+
+    public WebElement getSigninLink() {
+        wait.until(ExpectedConditions.visibilityOf(signinLink));
+        return signinLink;
     }
 
     public WebElement getUserName() {
