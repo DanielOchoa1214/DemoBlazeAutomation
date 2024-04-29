@@ -48,6 +48,7 @@ public class CartPageTest extends DemoBlazeTest {
         WebElement addToCartBtn = detailsPage.getAddToCartBtn();
 
         addToCartBtn.click();
+        detailsPage.getAlert().accept();
 
         navBar.gotToCart();
         Assert.assertEquals(cartPage.getFirstElementTitle().getText(), productName);
@@ -65,6 +66,7 @@ public class CartPageTest extends DemoBlazeTest {
         WebElement addToCartBtn = detailsPage.getAddToCartBtn();
 
         addToCartBtn.click();
+        detailsPage.getAlert().accept();
 
         navBar.gotToCart();
 
@@ -79,6 +81,7 @@ public class CartPageTest extends DemoBlazeTest {
 
         WebElement addToCartBtn = detailsPage.getAddToCartBtn();
         addToCartBtn.click();
+        detailsPage.getAlert().accept();
 
         navBar.gotToCart();
         Assert.assertEquals(cartPage.getFirstElementTitle().getText(), productName);
@@ -98,6 +101,7 @@ public class CartPageTest extends DemoBlazeTest {
 
         WebElement addToCartBtn = detailsPage.getAddToCartBtn();
         addToCartBtn.click();
+        detailsPage.getAlert().accept();
 
         navBar.gotToCart();
         Assert.assertEquals(cartPage.getFirstElementTitle().getText(), productName);
@@ -119,6 +123,7 @@ public class CartPageTest extends DemoBlazeTest {
 
         WebElement addToCartBtn = detailsPage.getAddToCartBtn();
         addToCartBtn.click();
+        detailsPage.getAlert().accept();
 
         navBar.gotToCart();
         Assert.assertEquals(cartPage.getFirstElementTitle().getText(), productName);
@@ -143,6 +148,7 @@ public class CartPageTest extends DemoBlazeTest {
 
         WebElement addToCartBtn = detailsPage.getAddToCartBtn();
         addToCartBtn.click();
+        detailsPage.getAlert().accept();
 
         navBar.gotToCart();
         Assert.assertEquals(cartPage.getFirstElementTitle().getText(), productName);
@@ -164,6 +170,7 @@ public class CartPageTest extends DemoBlazeTest {
 
         WebElement addToCartBtn = detailsPage.getAddToCartBtn();
         addToCartBtn.click();
+        detailsPage.getAlert().accept();
 
         navBar.gotToCart();
         Assert.assertEquals(cartPage.getFirstElementTitle().getText(), productName);
@@ -180,6 +187,7 @@ public class CartPageTest extends DemoBlazeTest {
 
         WebElement addToCartBtn = detailsPage.getAddToCartBtn();
         addToCartBtn.click();
+        detailsPage.getAlert().accept();
 
         navBar.gotToCart();
         Assert.assertEquals(cartPage.getFirstElementTitle().getText(), productName);
@@ -190,10 +198,11 @@ public class CartPageTest extends DemoBlazeTest {
         Assert.assertTrue(cartPage.getPlaceOrderTitle().isDisplayed());
 
         WebElement closeBtn = cartPage.getCloseBtn();
+        WebElement placeOrderTitle = cartPage.getPlaceOrderTitle();
         closeBtn.click();
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.invisibilityOf(cartPage.getPlaceOrderTitle()));
+        wait.until(ExpectedConditions.invisibilityOf(placeOrderTitle));
     }
 
     @AfterMethod

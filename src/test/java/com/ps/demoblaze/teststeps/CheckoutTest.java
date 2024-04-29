@@ -39,7 +39,7 @@ public class CheckoutTest extends DemoBlazeTest {
 
     @BeforeMethod
     public void beforeMethod(){
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
         driver.get("https://demoblaze.com/");
         checkoutForm = new CheckoutForm(driver);
         cartPage = new CartPage(driver);
