@@ -90,6 +90,6 @@ public class CheckoutTest extends DemoBlazeTest {
 
     @AfterMethod
     public void afterMethod() {
-    //    driver.close();
+        driver.close();
     }
 }
