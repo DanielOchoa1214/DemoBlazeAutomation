@@ -26,4 +26,10 @@ public class CartPage {
 
         return firstElementTitle;
     }
+    @FindBy(css = "a#cartur")
+    private WebElement cartButton;
+
+    public WebElement getCartButton() {
+        return cartButton;
+    }
 }
