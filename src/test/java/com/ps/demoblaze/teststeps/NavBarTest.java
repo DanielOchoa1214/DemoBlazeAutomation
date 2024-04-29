@@ -49,48 +49,30 @@ public class NavBarTest extends DemoBlazeTest {
     @Test()
     public void ECLAT_565_NavBarFunctionality(){
         Actions actions = new Actions(driver);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-
-        WebElement homeButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.nav-link[href='index.html']")));
-        homeButton.click();
+        navbar.getHomeBtn().click();
         actions.pause(Duration.ofSeconds(3)).perform();
 
-        WebElement contactBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.nav-link[data-toggle='modal'][data-target='#exampleModal']")));
-        contactBtn.click();
+        navbar.getContactBtn().click();
         actions.pause(Duration.ofSeconds(2)).perform();
-        WebElement modal1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("exampleModal")));
-        WebElement closeModal1 = modal1.findElement(By.cssSelector("#exampleModal .modal-footer button[data-dismiss='modal']"));
-        closeModal1.click();
+        navbar.getCloseModalContact().click();
         actions.pause(Duration.ofSeconds(2)).perform();
 
-
-        WebElement aboutUsBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a.nav-link[data-toggle='modal'][data-target='#videoModal']")));
-        aboutUsBtn.click();
+        navbar.getAboutUsBtn().click();
         actions.pause(Duration.ofSeconds(2)).perform();
-        WebElement modal2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("videoModal")));
-        WebElement closeModal2 = modal2.findElement(By.cssSelector("#videoModal .modal-footer button[data-dismiss='modal']"));
-        closeModal2.click();
+        navbar.getCloseModalAboutUs().click();
         actions.pause(Duration.ofSeconds(2)).perform();
 
-        WebElement cartBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("cartur")));
-        cartBtn.click();
+        navbar.getCartBtn().click();
         actions.pause(Duration.ofSeconds(2)).perform();
 
-        WebElement logInBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("login2")));
-        logInBtn.click();
+        navbar.getLoginBtn().click();
         actions.pause(Duration.ofSeconds(2)).perform();
-        WebElement modal3 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("logInModal")));
-        WebElement closeModal3 = modal3.findElement(By.cssSelector("#logInModal .modal-footer button[data-dismiss='modal']"));
-        closeModal3.click();
+        navbar.getCloseModalLogin().click();
         actions.pause(Duration.ofSeconds(2)).perform();
 
-        WebElement SignUpBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("signin2")));
-        SignUpBtn.click();
+        navbar.getSigninBtn().click();
         actions.pause(Duration.ofSeconds(2)).perform();
-        WebElement modal4 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("signInModal")));
-        WebElement closeModal4 = modal4.findElement(By.cssSelector("#signInModal .modal-footer button[data-dismiss='modal']"));
-        closeModal4.click();
+        navbar.getCloseModalSignIn().click();
         actions.pause(Duration.ofSeconds(2)).perform();
     }
     @Test
