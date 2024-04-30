@@ -38,7 +38,29 @@ public class NavBarTest extends DemoBlazeTest {
         navbar = new NavBar(driver);
         driver.manage().window().maximize();
     }
-    @Test()
+
+    // Cart y signup son redundantes
+    @Test
+    public void ECLAT_565_homeLinkWorksCorrectly(){
+        navbar.getHomeBtn().click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://demoblaze.com/index.html");
+    }
+
+    @Test
+    public void ECLAT_565_contactLinkWorksCorrectly(){
+        navbar.getContactBtn().click();
+        WebElement contactPopup = navbar.getModalContact();
+        Assert.assertTrue(contactPopup.isDisplayed());
+    }
+
+    @Test
+    public void ECLAT_565_aboutUsLinkWorksCorrectly(){
+        navbar.getContactBtn().click();
+        WebElement contactPopup = navbar.getModalContact();
+        Assert.assertTrue(contactPopup.isDisplayed());
+    }
+
+    @Test
     public void ECLAT_490_ClickingCartIcon(){
         navbar.getCartButton().click();
         String currentURL = driver.getCurrentUrl();
@@ -46,39 +68,18 @@ public class NavBarTest extends DemoBlazeTest {
         Assert.assertEquals(currentURL, expectedURL, "URL doesn't match");
     }
 
-    /*@Test()
-    public void ECLAT_565_NavBarFunctionality(){
-        Actions actions = new Actions(driver);
-        navbar.getHomeBtn().click();
-        actions.pause(Duration.ofSeconds(3)).perform();
-
-        navbar.getContactBtn().click();
-        actions.pause(Duration.ofSeconds(2)).perform();
-        navbar.getCloseModalContact().click();
-        actions.pause(Duration.ofSeconds(2)).perform();
-
-        navbar.getAboutUsBtn().click();
-        actions.pause(Duration.ofSeconds(2)).perform();
-        navbar.getCloseModalAboutUs().click();
-        actions.pause(Duration.ofSeconds(2)).perform();
-
-        navbar.getCartBtn().click();
-        actions.pause(Duration.ofSeconds(2)).perform();
-
-        navbar.getLoginBtn().click();
-        actions.pause(Duration.ofSeconds(2)).perform();
-        navbar.getCloseModalLogin().click();
-        actions.pause(Duration.ofSeconds(2)).perform();
-
-        navbar.getSigninBtn().click();
-        actions.pause(Duration.ofSeconds(2)).perform();
-        navbar.getCloseModalSignIn().click();
-        actions.pause(Duration.ofSeconds(2)).perform();
-    }*/
     @Test
-    public void ECLAT_807_SignUpFRegistratForm(){
+    public void ECLAT_565_loginLinkWorksCorrectly(){
+        navbar.getLoginLink().click();
+        WebElement loginPopup = navbar.getModalLogin();
+        Assert.assertTrue(loginPopup.isDisplayed());
+    }
+
+    @Test
+    public void ECLAT_807_SignUpFRegisterForm(){
         navbar.getSignUpBtn().click();
-        Assert.assertNotNull(navbar.getSignUpModal());
+        WebElement signUpPopup = navbar.getSignUpModal();
+        Assert.assertTrue(signUpPopup.isDisplayed());
     }
 
     @AfterMethod

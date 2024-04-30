@@ -22,8 +22,8 @@ import java.util.List;
 
 public class MainPageTest extends DemoBlazeTest {
     private WebDriver driver = null;
-    MainPage mainPage;
-    WebDriverWait wait;
+    private MainPage mainPage;
+    private WebDriverWait wait;
     private ChromeOptions options;
 
     @BeforeClass
@@ -37,6 +37,7 @@ public class MainPageTest extends DemoBlazeTest {
         driver = new ChromeDriver(options);
         driver.get("https://demoblaze.com/");
         mainPage = new MainPage(driver);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         //driver.manage().window().maximize();
     }
 
@@ -76,40 +77,27 @@ public class MainPageTest extends DemoBlazeTest {
         Assert.assertEquals(product1,product);
     }
 
-    /*@Test
-    public void ECLAT_552_NavigElementsFunctionality(){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        new Actions(driver)
-                .pause(Duration.ofSeconds(2))
-                .click(mainPage.getCarouselArrowRight())
-                .pause(Duration.ofSeconds(1))
-                .click(mainPage.getCarouselArrowLeft())
-                .pause(Duration.ofSeconds(1))
-                //.click(categories)
-                .perform();
+    @Test
+    public void ECLAT_552_NavElementsFunctionality(){
+        // Testing carrousel functionality
+        mainPage.getCarouselArrowRight().click();
+        WebElement firstImg = mainPage.getFirstCarouselImg(false);
+        Assert.assertFalse(firstImg.getAttribute("class").contains("active"));
 
-        Actions actions = new Actions(driver);
+        mainPage.getCarouselArrowLeft().click();
+        firstImg = mainPage.getFirstCarouselImg(true);
+        Assert.assertTrue(firstImg.getAttribute("class").contains("active"));
 
-        List<WebElement> elements =  mainPage.getElements();
-        int index = 0;
+        // Testing filters
+        List<WebElement> filters =  mainPage.getFilters();
+        String[] products = new String[]{"Samsung galaxy s6", "Sony vaio i5", "Apple monitor 24"};
 
-        while (index < elements.size()) {
-            // actual element
-            wait.until(ExpectedConditions.visibilityOf(elements.get(index)));
-            WebElement element = elements.get(index);
-            // save text
-            String elementText = element.getText();
-            element.click();
-            actions.pause(Duration.ofSeconds(2)).perform();
-            wait.withTimeout(Duration.ofSeconds(4)).until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
-            // Finding again the component
-            elements = mainPage.getElements();
-            index++;
+        for(int i = 0; i < filters.size(); i++){
+            mainPage.filterProductsBy(i, products[i]);
+            String firstProductTitle = mainPage.getFirstProductTitle().getText();
+            Assert.assertEquals(firstProductTitle, products[i]);
         }
-        // wait.withTimeout(Duration.ofSeconds(4)).until(ExpectedConditions.visibilityOfElementLocated(By.tagName("body")));
-        mainPage.getMonitor().click();
-    }*/
-
+    }
 
 
     @Test
