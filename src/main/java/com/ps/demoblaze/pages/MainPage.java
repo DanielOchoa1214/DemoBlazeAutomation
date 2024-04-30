@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class MainPage {
     private final WebDriver driver;
@@ -123,13 +124,34 @@ public class MainPage {
         return monitor;
     }
 
- /////////////////////////////
     @FindBy(css = "#contcont a#itemc")
     private List<WebElement> filters;
+
+    @FindBy(css = ".carousel-item")
+    private WebElement firstCarouselImg;
 
     public List<WebElement> getFilters(){
         wait.until(ExpectedConditions.visibilityOfAllElements(filters));
         return filters;
     }
 
+    public void filterProductsBy(int filter, String expectedTitle){
+        getFilters().get(filter).click();
+        wait.until(ExpectedConditions.textMatches(By.cssSelector(".card-title"), Pattern.compile(expectedTitle)));
+    }
+
+    public WebElement getFirstProductTitle() {
+        PageFactory.initElements(driver, this);
+        wait.until(ExpectedConditions.visibilityOf(firstProductTitle));
+        return firstProductTitle;
+    }
+
+    public WebElement getFirstCarouselImg(boolean isActive) {
+        if (isActive) {
+            wait.until(driver1 -> firstCarouselImg.getAttribute("class").contains("active"));
+        } else {
+            wait.until(driver1 -> !firstCarouselImg.getAttribute("class").contains("active"));
+        }
+        return firstCarouselImg;
+    }
 }
