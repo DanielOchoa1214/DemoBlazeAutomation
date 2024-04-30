@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="DemoBlaze Test Suite">
+    <test verbose="2" preserve-order="true" name="C:\Users\danochoa\Documents\Proyecto\Framework\DemoBlazeAutomation">
+        <classes>
+            <class name="com.ps.demoblaze.e2e.EndToEndTest"/>
+            <class name="com.ps.demoblaze.teststeps.MainPageTest"/>
+            <class name="com.ps.demoblaze.teststeps.NavBarTest"/>
+            <class name="com.ps.demoblaze.teststeps.LoginTest"/>
+            <class name="com.ps.demoblaze.teststeps.ProductDetailsTest"/>
+            <class name="com.ps.demoblaze.teststeps.CheckoutTest"/>
+            <class name="com.ps.demoblaze.teststeps.CartPageTest"/>
+            <class name="com.ps.demoblaze.teststeps.SignUpTest"/>
+        </classes>
+    </test>
+</suite>
