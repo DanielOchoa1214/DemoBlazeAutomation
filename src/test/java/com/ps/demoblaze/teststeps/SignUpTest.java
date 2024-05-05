@@ -21,10 +21,7 @@ public class SignUpTest extends DemoBlazeTest {
 
     private ChromeOptions options;
     private WebDriver driver;
-    private MainPage mainPage;
-    private ProductDetailsPage detailsPage;
     private NavBar navBar;
-    private CartPage cartPage;
 
     private SignUpForm signUpForm;
     @BeforeClass
@@ -36,10 +33,7 @@ public class SignUpTest extends DemoBlazeTest {
     @BeforeMethod
     public void beforeMethod(){
         driver = new ChromeDriver(options);
-        mainPage = new MainPage(driver);
-        detailsPage = new ProductDetailsPage(driver);
         navBar = new NavBar(driver);
-        cartPage = new CartPage(driver);
         signUpForm = new SignUpForm(driver);
         driver.get("https://www.demoblaze.com/index.html");
         driver.manage().window().maximize();
